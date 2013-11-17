@@ -16,15 +16,15 @@ return array(
 		),
 	),
 	'components' => array(
-//		'db' => array(
-//			// setup to suit your needs
-//			'connectionString' => '{DB_CONNECTION}',
-//			'username' => '{DB_USER}',
-//			'password' => '{DB_PASSWORD}',
-//			'enableProfiling' => true,
-//			'enableParamLogging' => true,
-//			'charset' => 'utf8',
-//		),
+//		change to suit your needs
+		'db' => array(
+			'connectionString' => 'mysql:host=localhost;dbname=linkeeper',
+			'username' => 'root',
+			'password' => 'tureaxiu',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+		),
 	),
 	'params' => array(
 		'yii.handleErrors'   => true,
