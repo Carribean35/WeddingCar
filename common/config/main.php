@@ -28,22 +28,22 @@ return array(
 		'application.models.*'
 	),
 	'components' => array(
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+// 		'db'=>array(
+// 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+// 		),
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
 		),
-		'log' => array(
-			'class'  => 'CLogRouter',
-			'routes' => array(
-				array(
-					'class'        => 'CDbLogRoute',
-					'connectionID' => 'db',
-					'levels'       => 'error, warning',
-				),
-			),
-		),
+// 		'log' => array(
+// 			'class'  => 'CLogRouter',
+// 			'routes' => array(
+// 				array(
+// 					'class'        => 'CDbLogRoute',
+// 					'connectionID' => 'db',
+// 					'levels'       => 'error, warning',
+// 				),
+// 			),
+// 		),
 	),
 	'params' => array(
 		// php configuration

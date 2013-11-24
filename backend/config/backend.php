@@ -41,7 +41,8 @@ return array(
 			'scriptMap' => array(
 				'bootstrap.min.css' => false,
 				'bootstrap.min.js' => false,
-				'bootstrap-yii.css' => false
+				'bootstrap-yii.css' => false,
+				'jquery.min.js' => '/plugins/jquery-1.10.1.min.js'
 			)
 		),
 		'urlManager' => array(
@@ -58,6 +59,7 @@ return array(
 		),
 		'user' => array(
 			'allowAutoLogin' => true,
+			'loginUrl'=>array('site/login'),
 		),
 		'errorHandler' => array(
 			'errorAction' => 'site/error',

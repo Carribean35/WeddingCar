@@ -17,14 +17,14 @@ return array(
 	),
 	'components' => array(
 //		change to suit your needs
-		'db' => array(
-			'connectionString' => 'mysql:host=localhost;dbname=linkeeper',
-			'username' => 'root',
-			'password' => 'tureaxiu',
-			'enableProfiling' => true,
-			'enableParamLogging' => true,
-			'charset' => 'utf8',
-		),
+// 		'db' => array(
+// 			'connectionString' => 'mysql:host=localhost;dbname=linkeeper',
+// 			'username' => 'root',
+// 			'password' => 'tureaxiu',
+// 			'enableProfiling' => true,
+// 			'enableParamLogging' => true,
+// 			'charset' => 'utf8',
+// 		),
 	),
 	'params' => array(
 		'yii.handleErrors'   => true,

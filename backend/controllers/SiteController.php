@@ -11,8 +11,58 @@
  */
 class SiteController extends EController
 {
+	public function filters()
+	{
+		return array(
+				'accessControl',
+		);
+	}
+	
+	public function accessRules()
+	{
+		return array(
+				array('deny',
+						'actions'=>array('index'),
+						'users'=>array('?'),
+				),
+				array('allow',
+						'actions'=>array('index'),
+						'users'=>array('@'),
+				),
+		);
+	}	
+	
 	public function actionIndex()
 	{
 		$this->render('index');
+	}
+	
+	public function actionLogin() {
+		$this->layout = '//layouts/login';
+        $model = new LoginForm();
+
+        /**
+         * @var CWebUser $user
+         */
+        $user = Yii::app()->user;
+        if (!$user->isGuest) {
+            $this->redirect(Yii::app()->user->returnUrl);
+        }
+        if(isset($_POST['LoginForm']))
+        {
+		    $model->attributes=$_POST['LoginForm'];
+            
+            if($model->validate() && $model->login()) {
+                $this->redirect(Yii::app()->user->returnUrl);
+            }
+        }
+        
+        $this->render('login',array(
+            'model'=>$model,
+        ));
+	}
+	
+	public function actionError() {
+		die("error");
 	}
 }
