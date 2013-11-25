@@ -59,7 +59,6 @@ return array(
 		),
 		'user' => array(
 			'allowAutoLogin' => true,
-			'loginUrl'=>array('site/login'),
 		),
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
