@@ -1,50 +1,63 @@
+﻿<?php
+/* @var $this SiteController */
+
+$this->title_h3='Главная';
+
+$this->breadcrumbs=array(
+	'Главная'
+);
+
+$this->menuActiveItems[EController::DESKTOP_MENU_ITEM] = 1;
+
+Yii::app()->clientScript->registerScriptFile(
+	Yii::app()->assetManager->publish(
+		Yii::getPathOfAlias('webroot').'/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js'
+	),
+	CClientScript::POS_END
+);
+?>
+
 <div class="container">
+	
+	<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'content-form',
+			'enableAjaxValidation'=>true,
+			'clientOptions'=>array(
+				'validateOnSubmit'=>true,
+				'validateOnChange'=>false,
+				'errorCssClass'=>'error',
+			),
+			'htmlOptions'=>array('class'=>'form-horizontal'),
+			// 'action'=>'/catalog/brand/add/'
+		)); ?>
 
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="hero-unit">
-		<h1>Hello, world!</h1>
+			<div class="control-group">
+				<?php echo $form->label($model,'phone',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($model,'phone',array('class'=>'m-wrap medium', 'id' => 'phone')); ?>
+					<span class="help-inline"><?php echo $form->error($model,'phone'); ?></span>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<?php echo $form->label($model,'email',array('class'=>'control-label')); ?>
+				<div class="controls">
+					<?php echo $form->textField($model,'email',array('class'=>'m-wrap medium')); ?>
+					<span class="help-inline"><?php echo $form->error($model,'email'); ?></span>
+				</div>
+			</div>
+			
+			<div class="form-actions large">
+				<?php echo CHtml::htmlButton('<i class="icon-ok"></i> Сохранить', array('class' => 'btn blue', 'type' => 'submit')); ?>
+				<?php echo CHtml::htmlButton('Отменить', array('class' => 'btn', 'type' => 'reset')); ?>
+			</div>
 
-		<p>This is a template for a simple marketing or informational website. It includes a large callout called the
-			hero unit and three supporting pieces of content. Use it as a starting point to create something more
-			unique.</p>
-
-		<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-	</div>
-
-	<!-- Example row of columns -->
-	<div class="row">
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-				porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-				fermentum massa justo sit amet risus.</p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-	</div>
-
-	<hr>
-
-	<footer>
-		<p>&copy; Company 2012</p>
-	</footer>
+		<?php $this->endWidget(); ?>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#phone").inputmask("mask", {"mask": "9 (999) 999 99 99"});	
+	})
+
+</script>

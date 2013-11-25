@@ -34,7 +34,16 @@ class SiteController extends EController
 	
 	public function actionIndex()
 	{
-		$this->render('index');
+		$model = new ContentForm();
+		
+		
+		
+		$this->render('index', array('model' => $model));
+	}
+	
+	public function actionGallery()
+	{
+		$this->render('gallery');
 	}
 	
 	public function actionLogin() {

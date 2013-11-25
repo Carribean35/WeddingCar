@@ -12,9 +12,14 @@
  */
 class EController extends CController
 {
+    const DESKTOP_MENU_ITEM = "desktop";
+    const GALLERY_MENU_ITEM = "gallery";
+
 	public $meta_keywords = array();
 	public $meta_description = array();
 	public $breadcrumbs;
+	public $menuActiveItems = array();
+	public $title_h3;
 
 
 	/**
