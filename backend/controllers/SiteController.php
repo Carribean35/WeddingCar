@@ -34,16 +34,41 @@ class SiteController extends EController
 	
 	public function actionIndex()
 	{
+		
 		$model = new ContentForm();
 		
-		
+		if(isset($_POST['ContentForm'])) {
+			$model->attributes=$_POST['ContentForm'];
+			$this->performAjaxValidation($model);
+			
+			if($model->save()) {
+				if (Yii::app()->request->isAjaxRequest) {
+					echo CJSON::encode(
+						array(
+							'error'=>false,
+						)
+					);
+					Yii::app()->end();
+				}
+			}
+		}
 		
 		$this->render('index', array('model' => $model));
 	}
 	
 	public function actionGallery()
 	{
-		$this->render('gallery');
+		if(isset($_FILES['GalleryForm'])) {
+			$galleryModel = new GalleryForm();
+			$galleryModel->image=CUploadedFile::getInstance($galleryModel,'image');
+			$galleryModel->image->saveAs(Yii::getPathOfAlias('common').'/data/gallery/'.$galleryModel->image->getName());
+			$this->redirect("/site/gallery/");
+		}
+		
+		$galleryModel = new GalleryForm();
+		$images = $galleryModel->getImages();
+
+		$this->render('gallery', array('images' => $images, 'galleryModel' => $galleryModel));
 	}
 	
 	public function actionLogin() {
@@ -73,5 +98,14 @@ class SiteController extends EController
 	
 	public function actionError() {
 		die("error");
+	}
+	
+	public function actionDeleteGalleryImage() {
+		if (isset($_POST['name'])) {
+			$path = Yii::getPathOfAlias('common').'/data/gallery/'.$_POST['name'];
+			if (file_exists($path)) {
+				unlink(Yii::getPathOfAlias('common').'/data/gallery/'.$_POST['name']);
+			}
+		}
 	}
 }

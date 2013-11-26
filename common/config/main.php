@@ -10,6 +10,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 return array(
+	'language' => 'ru',
 	'preload' => array('log'),
 	'aliases' => array(
 		'frontend' => dirname(__FILE__) . '/../..' . '/frontend',
@@ -45,10 +46,28 @@ return array(
 // 				),
 // 			),
 // 		),
+		'mailer' => array(
+				'class' => 'common.extensions.mailer.EMailer',
+// 				'pathViews' => 'application.views.email',
+// 				'pathLayouts' => 'application.views.email.layouts'
+		),
 	),
 	'params' => array(
 		// php configuration
 		'php.defaultCharset' => 'utf-8',
 		'php.timezone'       => 'UTC',
+		'smtp' => array(
+				"host" => "smtp.yandex.ru", //smtp сервер
+				"debug" => 0, //отображение информации дебаггера (0 - нет вообще)
+				"auth" => true, //сервер требует авторизации
+				"port" => 25, //порт (по-умолчанию - 25)
+				"username" => "carribean", //имя пользователя на сервере
+				"password" => "qjucgjrjty", //пароль
+				"addreply" => "carribean@yandex.ru", //ваш е-mail
+				"replyto" => "", //e-mail ответа
+				"fromname" => "wedding-car.ru", //имя
+				"from" => "carribean@yandex.ru", //от кого
+				"charset" => "utf-8", //от кого
+		)
 	)
 );

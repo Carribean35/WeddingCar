@@ -3,104 +3,441 @@
  *
  * main.php layout
  *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @copyright 2013 2amigOS! Consultation Group LLC
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 ?>
-<!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<style>
-		body {
-			padding-top: 60px;
-			padding-bottom: 40px;
-		}
-	</style>
-
-	<link rel="stylesheet" href="css/main.css">
-
-	<script src="js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
+
 <body>
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-	your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
-	improve your experience.</p>
-<![endif]-->
+	<div class="wrapper">
 
-<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="#">Project name</a>
-
-			<div class="nav-collapse collapse">
-				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li class="nav-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
+		<div class="header">
+			<div class="cabriolet">
+				Прокат кабриолета
+			</div>
+			<div class="phone_block">
+				<div class="phone">
+					<?php echo $this->content->phone;?>
+				</div>
+				<div class="order_button" id="order_button"></div>
+			</div>			
+			<div class="logo">
+				<a href="/">
+					<img src="/images/logo.png">
+				</a>
+			</div>
+			
+			<div class="menu clear">
+				<ul>
+					<li>
+						<a href="#work">КАК МЫ РАБОТАЕМ</a>
+					</li>
+					<li>
+						<a href="#service">НАШИ УСЛУГИ</a>
+					</li>
+					<li>
+						<a href="#about">КОРОТОКО О НАС</a>
+					</li>
+					<li>
+						<a href="#portfolio">ПОРТФОЛИО</a>
 					</li>
 				</ul>
-				<form class="navbar-form pull-right">
-					<input class="span2" type="text" placeholder="Email">
-					<input class="span2" type="password" placeholder="Password">
-					<button type="submit" class="btn">Sign in</button>
-				</form>
+				<div class="clear"></div>
 			</div>
-			<!--/.nav-collapse -->
 		</div>
+
+		<div class="content">
+			
+			<div class="gallery">
+				<div class="lt_corner white"></div>
+				<div class="rt_corner white"></div>
+				<div class="b_corner pink"></div>
+				<div class="left_arrow"></div>
+				<div class="right_arrow"></div>
+				<div class="ul_container">
+					<ul>
+						<?php foreach($this->galleryImages AS $image){ ?>
+							<li>
+								<img src="<?php echo $image;?>" height="500px" width="1000px">
+							</li>
+						<?php }?>
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div class="work" id="work">
+				<div class="header">- Как мы работаем -</div>
+				<ul class="steps">
+					<li class="step_1">
+						<div class="step_header">1 этап</div>
+						<div class="step_text">Обсуждение сценария</div>
+					</li>
+					<li class="step_2">
+						<div class="step_header">2 этап</div>
+						<div class="step_text">Определение сроков</div>
+					</li>
+					<li class="step_3">
+						<div class="step_header">3 этап</div>
+						<div class="step_text">Заключение договора, внесение предоплаты</div>
+					</li>
+					<li class="step_4">
+						<div class="step_header">4 этап</div>
+						<div class="step_text">Подбор фото и видео оператора</div>
+					</li>
+					<li class="step_5">
+						<div class="step_header">5 этап</div>
+						<div class="step_text">Проведение мероприятия</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="service" id="service">
+				<div class="header">- Наши услуги -</div>
+				<ul class="service_list">
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_1.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Организация</div>
+						<div class="service_list_item_text">свадебного кортежа</div>
+					</li>
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_2.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Прогулки</div>
+						<div class="service_list_item_text">на кабриолете</div>
+					</li>
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_3.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Фотосессия</div>
+						<div class="service_list_item_text">на кабриолете</div>
+					</li>
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_4.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Подбор и подготовка</div>
+						<div class="service_list_item_text">сценария</div>
+					</li>
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_5.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Оформление</div>
+						<div class="service_list_item_text">украшения</div>
+					</li>
+					<li class="item">
+						<div class="img_container">
+							<img src="/images/service_item_6.jpg">
+							<div class="border"></div>
+						</div>
+						<div class="service_list_item_header">Выбор</div>
+						<div class="service_list_item_text">профессионального фото и видео оператора</div>
+					</li>
+				</ul>
+				
+			</div>
+			
+			<div class="about" id="about">
+				<div class="lt_corner white"></div>
+				<div class="rt_corner white"></div>
+				<div class="b_corner white"></div>
+				<div class="left_arrow"></div>
+				<div class="right_arrow"></div>
+				<div class="header">- Коротко о нас -</div>
+				<div class="text">
+					<p>
+						<?php echo $this->content->aboutText;?>
+					</p>
+				</div>
+			</div>
+			
+			<div class="action">
+				<div class="header">- Акция -</div>
+				<div class="present"><?php echo $this->content->actionText?></div>
+				<div class="right_block">
+					<div class="timer_block">
+						До конца акции:
+						<div class="timer_counter">
+							<div class="days">
+								<div class="timer_num" id="day1">1</div>
+								<div class="timer_num" id="day2">2</div>
+								дней
+							</div>
+							<div class="hours">
+								<div class="timer_num" id="hour1">1</div>
+								<div class="timer_num" id="hour2">2</div>
+								часов
+							</div>
+							<div class="minuts">
+								<div class="timer_num" id="minut1">1</div>
+								<div class="timer_num" id="minut2">2</div>
+								минут
+							</div>
+						</div>
+					</div>
+					
+					<div class="action_submit_block clear">
+						<div class="input_text_container name">
+							<div class="icon"></div>
+							<input type="text" name="name" id="action_name" placeholder="Ваше имя" value="">
+						</div>
+						<div class="input_text_container phone">
+							<div class="icon"></div>
+							<input type="text" name="phone" id="action_phone" placeholder="Телефон" value="">
+						</div>
+						<div class="order_button" id="action_button"></div>						
+						
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="portfolio" id="portfolio">
+				<div class="header">- Портфолио -</div>
+				<div class="item litepink">
+					<div class="foto">
+						<div class="lt_corner white"></div>
+						<div class="rt_corner white"></div>
+						<div class="b_corner litepink"></div>
+						<img src="/images/portfolio_1.jpg">
+					</div>
+					<div class="bubble">
+						<div class="text">
+							<div class="left_quote pink"></div>
+							<div class="right_quote pink"></div>
+							Спасибо за организацию мероприятия сотрудникам «Веддинг Кар», действительно уникальный сценарий, Спасибо вашей команде за талант и креативность.
+						</div>
+					</div>
+					<div class="author">Оксана и Юрий</div>
+				</div>
+				<div class="item lilac">
+					<div class="foto">
+						<div class="lt_corner litepink"></div>
+						<div class="rt_corner litepink"></div>
+						<div class="b_corner lilac"></div>
+						<img src="/images/portfolio_2.jpg">
+					</div>
+					<div class="bubble">
+						<div class="text">
+							<div class="left_quote lilac"></div>
+							<div class="right_quote lilac"></div>
+							Дорогие сотрудники «Веддинг Кар», спасибо вам огромное за то, что сделали нашу сказку былью, воплотили мечты об идеальной свадьбе. Спустя годы нашим гостям и нам будет что вспомнить! 
+Все было супер! Спасибо, ребята. Я сама такого не ожидала, коллеги были в приятном ступоре от некоторых задумок. Одним словом, молодцы!
+						</div>
+					</div>
+					<div class="author">Оксана и Юрий</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="logo_block">
+				<div class="logo">
+					<a href="/">
+						<img src="/images/logo.png">
+					</a>
+				</div>
+				<div class="phone"><?php echo $this->content->phone;?></div>
+				<div class="email">
+					<a href="mailto:<?php echo $this->content->email;?>"><?php echo $this->content->email;?></a>
+				</div>
+			</div>
+			<div class="send_mail_block">
+				<div class="input_text_container name big">
+					<div class="icon"></div>
+					<input type="text" name="name" id="footer_name" placeholder="Ваше имя" value="">
+				</div>
+				<div class="input_text_container phone big">
+					<div class="icon"></div>
+					<input type="text" name="phone" id="footer_phone" placeholder="Телефон" value="">
+				</div>
+				<div class="input_textarea_container">
+					<textarea id="footer_text" placeholder="Текст письма"></textarea>
+				</div>
+				<div class="send_mail_button" id="footer_button"></div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+	</div>
+	
+	<script src="/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		var Gallery = function () {
+	
+		    return {
+
+				count : 0,
+				active : 0,
+				ul : false,
+			    
+		        //main function to initiate the module
+		        init: function (tag) {
+
+		        	this.ul = $(".gallery ul").eq(0);
+		            this.count = this.ul.find("li").length;
+		            self = this;
+		            $(".gallery .left_arrow").on("click", function(){self.prev()});
+		            $(".gallery .right_arrow").on("click", function(){self.next()});
+		            
+		        },
+	        	next: function() {
+					if (this.active != this.count - 1)
+						this.active++;
+					else 
+						this.active = 0;
+
+					this.ul.animate({left: "-" + 1000 * this.active})
+	        	},
+	        	prev: function() {
+	        		if (this.active != 0)
+	        			this.active--;
+					else 
+						this.active = this.count - 1;
+
+	        		this.ul.animate({left: "-" + 1000 * this.active})
+	        	}
+	
+		    };
+	
+		}();
+
+		var actionEndDate = new Date(<?php echo $this->content->actionDateEnd[2]?>,
+									<?php echo $this->content->actionDateEnd[1] - 1?>,
+									<?php echo $this->content->actionDateEnd[0]?>,
+									<?php echo $this->content->actionTimeEnd[0]?>,
+									<?php echo $this->content->actionTimeEnd[1]?>,
+									<?php echo $this->content->actionTimeEnd[2]?>
+				);
+
+		var Timer = function() {
+			var nowDate = new Date();
+			var timeLast = (actionEndDate - nowDate) / 1000;
+			var days = (parseInt(timeLast / (60 * 60 * 24))).toString();
+			var hours = (parseInt((timeLast / (60 * 60))) % 24).toString();
+			var minuts = (parseInt((timeLast / (60))) % 60).toString();
+
+			days = days.length == 1 ? "0" + days : days;
+			hours = hours.length == 1 ? "0" + hours : hours;
+			minuts = minuts.length == 1 ? "0" + minuts : minuts;
+
+			$("#day1").html(days[0]);
+			$("#day2").html(days[1]);
+			$("#hour1").html(hours[0]);
+			$("#hour2").html(hours[1]);
+			$("#minut1").html(minuts[0]);
+			$("#minut2").html(minuts[1]);
+
+		}
+
+		var sendMail = function(name, phone, text) {
+			$.ajax({
+				url : '/site/sendMail/',
+				type : 'POST',
+				dataType: 'json',
+				data: {
+					name: name,
+					phone : phone,
+					text : text
+				},
+				success: function(response) {
+					alert("Ваша заявка отправлена! В ближайшее время мы свяжемся с Вами!");
+				}
+			})
+		} 
+
+		$(document).ready(function() {
+			Gallery.init();
+
+			setInterval(Timer, 1000);
+			Timer();
+
+			$("#order_button").on("click", function() {
+			    $('#dialog_add_client').modal();
+			})
+
+			$("#modal_button").on("click", function() {
+				var name = $("#modal_name").val();
+				var phone = $("#modal_phone").val();
+				var text = $("#modal_text").val();
+
+				if (name && phone) {
+					sendMail(name, phone, text);
+				}
+			})
+
+			$("#footer_button").on("click", function() {
+				var name = $("#footer_name").val();
+				var phone = $("#footer_phone").val();
+				var text = $("#footer_text").val();
+
+				if (name && phone) {
+					sendMail(name, phone, text);
+				}
+			})
+
+			$("#action_button").on("click", function() {
+				var name = $("#action_name").val();
+				var phone = $("#action_phone").val();
+
+				if (name && phone) {
+					sendMail(name, phone);
+				}
+			})
+		})
+		
+	</script>
+
+<div id="dialog_add_client" class="modal hide fade" tabindex="-1" data-width="760" data-height="2000">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<div class="header">Оставить заявку</div>
+	</div>
+	<div class="modal-body" >
+	<div class="send_mail_block">
+		<div class="input_text_container name big">
+			<div class="icon"></div>
+			<input type="text" name="name" id="modal_name" placeholder="Ваше имя" value="">
+		</div>
+		<div class="input_text_container phone big">
+			<div class="icon"></div>
+			<input type="text" name="phone" id="modal_phone" placeholder="Телефон" value="">
+		</div>
+		<div class="clear"></div>
+		<div class="input_textarea_container">
+			<textarea id="modal_text" placeholder="Текст письма"></textarea>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+	</div>
+	<div class="modal-footer">
+		<div class="send_mail_button pull-right" id="modal_button"></div>
 	</div>
 </div>
-
-<?php echo $content; ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="js/libs/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script><script>
-	var _gaq = [
-		['_setAccount', 'UA-XXXXX-X'],
-		['_trackPageview']
-	];
-	(function (d, t) {
-		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-		g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g, s)
-	}(document, 'script'));
-</script>
+	
 </body>
 </html>
