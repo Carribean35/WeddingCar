@@ -58,7 +58,7 @@ class SiteController extends EController
 	
 	public function actionGallery()
 	{
-		if(isset($_FILES['GalleryForm'])) {
+		if(!empty($_FILES['GalleryForm']['name']['image'])) {
 			$galleryModel = new GalleryForm();
 			$galleryModel->image=CUploadedFile::getInstance($galleryModel,'image');
 			$galleryModel->image->saveAs(Yii::getPathOfAlias('common').'/data/gallery/'.$galleryModel->image->getName());
