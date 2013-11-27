@@ -18,7 +18,25 @@
 
 <body>
 	<div class="wrapper">
-
+<div class="fixed_menu_container">
+	<div class="menu fixed clear">
+		<ul>
+			<li>
+				<a href="#work">КАК МЫ РАБОТАЕМ</a>
+			</li>
+			<li>
+				<a href="#service">НАШИ УСЛУГИ</a>
+			</li>
+			<li>
+				<a href="#about">КОРОТОКО О НАС</a>
+			</li>
+			<li>
+				<a href="#portfolio">ПОРТФОЛИО</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
 		<div class="header">
 			<div class="cabriolet">
 				Прокат кабриолета
@@ -191,6 +209,11 @@
 								<div class="timer_num" id="minut2">2</div>
 								минут
 							</div>
+							<div class="seconds">
+								<div class="timer_num" id="second1">1</div>
+								<div class="timer_num" id="second2">2</div>
+								секунд
+							</div>
 						</div>
 					</div>
 					
@@ -339,10 +362,12 @@
 			var days = (parseInt(timeLast / (60 * 60 * 24))).toString();
 			var hours = (parseInt((timeLast / (60 * 60))) % 24).toString();
 			var minuts = (parseInt((timeLast / (60))) % 60).toString();
+			var seconds = (parseInt(timeLast) % 60).toString();
 
 			days = days.length == 1 ? "0" + days : days;
 			hours = hours.length == 1 ? "0" + hours : hours;
 			minuts = minuts.length == 1 ? "0" + minuts : minuts;
+			seconds = seconds.length == 1 ? "0" + seconds : seconds;
 
 			$("#day1").html(days[0]);
 			$("#day2").html(days[1]);
@@ -350,6 +375,8 @@
 			$("#hour2").html(hours[1]);
 			$("#minut1").html(minuts[0]);
 			$("#minut2").html(minuts[1]);
+			$("#second1").html(seconds[0]);
+			$("#second2").html(seconds[1]);
 
 		}
 
@@ -407,7 +434,29 @@
 					sendMail(name, phone);
 				}
 			})
+			
+			menu_coords = $(".header .menu").offset();
+		
+			$(".menu a").click(function () {
+				var elementClick = $(this).attr("href");
+				var destination = $(elementClick).offset().top - 45;
+				if ($.browser.safari) {
+					$('body').animate({ scrollTop: destination }, 500);
+				} else {
+					$('html').animate({ scrollTop: destination }, 500);
+				}
+				return false; 
+			});
+		
 		})
+		
+		
+		$(document).scroll(function(event) {
+			if ($(document).scrollTop() > menu_coords.top)
+				$(".fixed_menu_container").show();
+			else 
+				$(".fixed_menu_container").hide();
+		});
 		
 	</script>
 
