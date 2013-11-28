@@ -354,6 +354,7 @@ Header and header elements.
 
 .header .brand img {
   margin-left: 20px;
+  height: 70px;
 }
 
 .header .btn-navbar {
@@ -378,7 +379,7 @@ Header and header elements.
   border: 0px;
   padding: 0px; 
   box-shadow: none;
-  height: 42px; 
+  height: 92px; 
 }
 
 .header .nav {
@@ -516,7 +517,7 @@ Page container
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  margin-top: 92px;  
 }
 
 /***
@@ -5470,4 +5471,14 @@ div.checker.disabled.active span{
 div.checker.disabled:hover,
 div.radio.disabled:hover {
     cursor: not-allowed;  
+}
+
+.btn.dash-btn {
+    color: #FFFFFF !important;
+    margin-top: -8px;
+    padding: 8px 14px;
+}
+
+.btn.dash-btn i {
+    color: inherit !important;
 }

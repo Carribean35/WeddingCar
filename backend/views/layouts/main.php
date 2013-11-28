@@ -74,6 +74,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 					<span class="selected"></span>
 					</a>
 				</li>
+				<li class="start <?php if (!empty($this->menuActiveItems[EController::PORTFOLIO_MENU_ITEM])) { echo 'active'; } ?>">
+					<a href="/site/portfolio/">
+					<i class="icon-reorder"></i> 
+					<span class="title">Портфолио</span>
+					<span class="selected"></span>
+					</a>
+				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>
@@ -101,8 +108,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 						<?php $this->widget('Title', array('title'=>$this->title_h3)); ?>
 					<?php endif; ?>
 					<?php if(isset($this->breadcrumbs)):?>
-						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+						<?php $this->widget('application.components.Breadcrumbs', array(
 							'links'=>$this->breadcrumbs,
+							'button'=>$this->breadcrumbs_button,
 							'tagName'=>'ul',
 							'htmlOptions'=>array('class'=>'breadcrumb'),
 							'separator'=>'<li><i class="icon-angle-right"></i></li>',

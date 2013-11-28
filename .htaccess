@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !frontend/www/
+RewriteRule (.*) /frontend/www/$1

@@ -235,47 +235,14 @@
 			
 			<div class="portfolio" id="portfolio">
 				<div class="header">- Портфолио -</div>
-				<div class="item litepink">
-					<div class="foto">
-						<div class="lt_corner white"></div>
-						<div class="rt_corner white"></div>
-						<div class="b_corner litepink"></div>
-						<img src="/images/portfolio_1.jpg">
-					</div>
-					<div class="bubble">
-						<div class="text">
-							<div class="left_quote pink"></div>
-							<div class="right_quote pink"></div>
-							Спасибо за организацию мероприятия сотрудникам «Веддинг Кар», действительно уникальный сценарий, Спасибо вашей команде за талант и креативность.
-						</div>
-					</div>
-					<div class="author">Оксана и Юрий</div>
-				</div>
-				<div class="item lilac">
-					<div class="foto">
-						<div class="lt_corner litepink"></div>
-						<div class="rt_corner litepink"></div>
-						<div class="b_corner lilac"></div>
-						<img src="/images/portfolio_2.jpg">
-					</div>
-					<div class="bubble">
-						<div class="text">
-							<div class="left_quote lilac"></div>
-							<div class="right_quote lilac"></div>
-							Дорогие сотрудники «Веддинг Кар», спасибо вам огромное за то, что сделали нашу сказку былью, воплотили мечты об идеальной свадьбе. Спустя годы нашим гостям и нам будет что вспомнить! 
-Все было супер! Спасибо, ребята. Я сама такого не ожидала, коллеги были в приятном ступоре от некоторых задумок. Одним словом, молодцы!
-						</div>
-					</div>
-					<div class="author">Оксана и Юрий</div>
-				</div>
-			</div>
+				<?php echo $this->portfolio?>
 		</div>
 
 		<div class="footer">
 			<div class="logo_block">
 				<div class="logo">
 					<a href="/">
-						<img src="/images/logo.png">
+						<img src="/images/logo.png" width="240px">
 					</a>
 				</div>
 				<div class="phone"><?php echo $this->content->phone;?></div>
@@ -391,7 +358,7 @@
 					text : text
 				},
 				success: function(response) {
-					alert("Ваша заявка отправлена! В ближайшее время мы свяжемся с Вами!");
+					alert("Спасибо за заявку, мы ответим в течении 30 минут.");
 				}
 			})
 		} 
@@ -435,8 +402,6 @@
 				}
 			})
 			
-			menu_coords = $(".header .menu").offset();
-		
 			$(".menu a").click(function () {
 				var elementClick = $(this).attr("href");
 				var destination = $(elementClick).offset().top - 45;
@@ -447,11 +412,15 @@
 				}
 				return false; 
 			});
+
+			$("#footer_phone, #action_phone, #modal_phone").inputmask("mask", {"mask": "9 (999) 999 99 99"});
 		
 		})
 		
+		var menu_coords = $(".header .menu").offset();		
 		
 		$(document).scroll(function(event) {
+			
 			if ($(document).scrollTop() > menu_coords.top)
 				$(".fixed_menu_container").show();
 			else 
@@ -484,6 +453,7 @@
 	</div>
 	</div>
 	<div class="modal-footer">
+		<div class="pull-left span4 text-left">Ваши контактные данные в безопасности и не будут переданы третьим лицам</div>
 		<div class="send_mail_button pull-right" id="modal_button"></div>
 	</div>
 </div>

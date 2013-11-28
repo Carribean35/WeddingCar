@@ -13,10 +13,18 @@ class SiteController extends EController
 {
 	public $content;
 	public $galleryImages;
+	public $portfolio;
 	
 	public function actionIndex()
 	{
 		Yii::app()->clientScript->registerCoreScript('jquery');
+		
+		Yii::app()->clientScript->registerScriptFile(
+			Yii::app()->assetManager->publish(
+				Yii::getPathOfAlias('webroot').'/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js'
+			),
+			CClientScript::POS_END
+		);
 		
 		$this->content = new ContentForm();
 		$this->content->aboutText = str_replace("\n", "<br>", $this->content->aboutText);
@@ -24,6 +32,8 @@ class SiteController extends EController
 		$this->galleryImages = $gallery->getImages();
 		$this->content->actionDateEnd = explode(".", $this->content->actionDateEnd);
 		$this->content->actionTimeEnd = explode(":", $this->content->actionTimeEnd);
+		
+		$this->portfolio = $this->buildPortfolio();
 		
 		$this->render('index');
 	}
@@ -58,9 +68,19 @@ class SiteController extends EController
 				$mailText .= '
 Заявка : '.$text;
 			}
-			
-			SendMail::send($__smtp = Yii::app()->params['smtp']['addreply'], "Заявка", $mailText);
-			
+			$content = new ContentForm();
+			SendMail::send($content->email, "Заявка", $mailText);
 		}
+	}
+	
+	private function buildPortfolio() {
+		$model = new PortfolioAddForm();
+		$arr = $model->getAll();
+		
+		$url = Yii::app()->assetManager->publish(
+				Yii::getPathOfAlias('common').'/data/portfolio/'
+		);
+		
+		return $this->renderPartial("portfolio", array('list' => $arr, 'url' => $url), true);
 	}
 }

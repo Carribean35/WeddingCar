@@ -31,7 +31,7 @@ class GalleryForm extends CFormModel
 		);
 		
 		$images = scandir($path);
-		$imgs = [];
+		$imgs = array();
 		foreach ($images AS &$image) {
 			if(preg_match('/\.(jpeg|jpg)/', $image)){
 				$imgs[] = $url.'/'.$image;

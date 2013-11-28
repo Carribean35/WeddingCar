@@ -97,7 +97,10 @@ class SiteController extends EController
 	}
 	
 	public function actionError() {
-		die("error");
+		
+		if($error=Yii::app()->errorHandler->error) {
+			$this->render('error', $error);
+		}
 	}
 	
 	public function actionDeleteGalleryImage() {
@@ -107,5 +110,40 @@ class SiteController extends EController
 				unlink(Yii::getPathOfAlias('common').'/data/gallery/'.$_POST['name']);
 			}
 		}
+	}
+	
+	public function actionPortfolio() {
+		
+		$model = new PortfolioAddForm();
+		$arr = $model->getAll();
+		$dataProvider = new CArrayDataProvider($arr);
+
+// 		die();
+		
+		$this->render('portfolioList', array("dataProvider" => $dataProvider));
+	}
+	
+	public function actionPortfolioAdd($id = false) {
+
+		$model = new PortfolioAddForm();
+		if ($id !== false)
+			$model->getPortfolio($id);
+		
+		if(isset($_POST['PortfolioAddForm']))
+		{
+		    $model->attributes=$_POST['PortfolioAddForm'];
+		    if($model->save() !== false) {
+	            $this->redirect('/site/portfolio/');
+	        }
+	    }
+
+		
+		$this->render('portfolioAdd', array('model' => $model));
+	}
+	
+	public function actionPortfolioDel($id) {
+		$model = new PortfolioAddForm();
+		$model->del($id);		
+		$this->redirect('/site/portfolio/');	
 	}
 }

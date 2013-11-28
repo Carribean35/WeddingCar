@@ -68,7 +68,7 @@ table {
 body {
 	font: 12px/18px PFAgoraSlabPro, sans-serif;
 	width: 100%;
-	background: url(../images/background.jpg) repeat-y;
+	background: url(../images/background.jpg) repeat;
 }
 .wrapper {
 	width: 1000px;
@@ -253,6 +253,14 @@ body {
 
 .b_corner.litepink{
 	background: url(../images/b_litepink_corner.png) no-repeat;
+}
+
+.lt_corner.lilac{
+	background: url(../images/lt_lilac_corner.png) no-repeat;
+}
+
+.rt_corner.lilac{
+	background: url(../images/rt_lilac_corner.png) no-repeat;
 }
 
 .b_corner.lilac{
@@ -730,4 +738,20 @@ body {
 
 .modal .modal-body .send_mail_block .input_text_container.phone {
 	margin-left: 16px;
+}
+
+@media screen and (max-device-width: 1024px;) {
+
+	.gallery .left_arrow {
+		left: 0;
+	}
+	
+	.gallery .right_arrow {
+		right: 0;
+	}  
+	
+	.menu ul li {
+		padding: 0 29px;
+	}
+
 }
