@@ -57,16 +57,16 @@ return array(
 		'php.defaultCharset' => 'utf-8',
 		'php.timezone'       => 'UTC',
 		'smtp' => array(
-				"host" => "smtp.yandex.ru", //smtp сервер
-				"debug" => 0, //отображение информации дебаггера (0 - нет вообще)
+				"host" => "smtp.jino.ru", //smtp сервер
+				"debug" => 1, //отображение информации дебаггера (0 - нет вообще)
 				"auth" => true, //сервер требует авторизации
-				"port" => 25, //порт (по-умолчанию - 25)
-				"username" => "weding-car", //имя пользователя на сервере
+				"port" => 587, //порт (по-умолчанию - 25)
+				"username" => "support@weding-car.ru", //имя пользователя на сервере
 				"password" => "hQfc8Gs3AD", //пароль
-				"addreply" => "weding-car@yandex.ru", //ваш е-mail
+				"addreply" => "support@weding-car.ru", //ваш е-mail
 				"replyto" => "", //e-mail ответа
 				"fromname" => "wedding-car.ru", //имя
-				"from" => "weding-car@yandex.ru", //от кого
+				"from" => "support@weding-car.ru", //от кого
 				"charset" => "utf-8", //от кого
 		)
 	)

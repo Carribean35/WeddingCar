@@ -262,6 +262,7 @@
 				<div class="input_textarea_container">
 					<textarea id="footer_text" placeholder="Текст письма"></textarea>
 				</div>
+				<div class="pull-left span4 text-left" style="margin-top:18px">Ваши контактные данные в безопасности и не будут переданы третьим лицам</div>
 				<div class="send_mail_button" id="footer_button"></div>
 				<div class="clear"></div>
 			</div>
@@ -405,15 +406,11 @@
 			$(".menu a").click(function () {
 				var elementClick = $(this).attr("href");
 				var destination = $(elementClick).offset().top - 45;
-				if ($.browser.safari) {
-					$('body').animate({ scrollTop: destination }, 500);
-				} else {
-					$('html').animate({ scrollTop: destination }, 500);
-				}
+				$('html, body').animate({ scrollTop: destination }, 500);
 				return false; 
 			});
 
-			$("#footer_phone, #action_phone, #modal_phone").inputmask("mask", {"mask": "9 (999) 999 99 99"});
+			$("#footer_phone, #action_phone, #modal_phone").inputmask("mask", {"mask": "\8 (999) 999 99 99"});
 		
 		})
 		
